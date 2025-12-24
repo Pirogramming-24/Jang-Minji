@@ -1,0 +1,395 @@
+* {
+  font-family: "Noto Sans KR", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #fff;
+}
+
+body {
+  background: #000;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 0% 30px;
+  height: 90px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+header h1 {
+  flex: 0 0 auto;
+}
+header h1 img {
+  cursor: pointer;
+}
+header nav {
+  flex: 1;
+  flex-flow: row nowrap;
+  display: flex;
+  justify-content: flex-end;
+  min-width: max-content;
+}
+header nav ul {
+  display: flex;
+  flex-flow: row nowrap;
+}
+header nav ul li {
+  list-style: none;
+  margin: 15px;
+  font-size: 1.3rem;
+  font-weight: light;
+}
+header nav ul li:hover {
+  transform: translateY(-2px);
+}
+header nav ul li a {
+  text-decoration: none;
+}
+header nav ul li #now {
+  text-decoration: none;
+  color: lime;
+}
+
+.main {
+  padding: 0 30px;
+}
+
+.main_top {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+}
+
+.main_top h2 {
+  font-weight: light;
+}
+
+.main_top p {
+  position: absolute;
+  right: 0;
+}
+
+.main_top p a {
+  text-decoration: none;
+}
+
+.card_section {
+  margin-bottom: 70px;
+}
+
+.card {
+  display: flex;
+  flex-flow: row nowrap;
+  background: #333;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card:hover .menu-icon img {
+  content: url(images/icons8-오른쪽-정렬-48.png);
+}
+
+.card:hover .card_image img {
+  transform: scale(1.1);
+}
+
+.card_image {
+  flex: 0 0 150px;
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.card_image img {
+  width: 100%;
+  border-radius: 7px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card_content {
+  flex: 1;
+  margin: 20px 5px;
+}
+
+.card_content h2 {
+  margin: 0;
+  line-height: 1;
+}
+.card_content p {
+  margin: 0;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.card_content .tag {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card_content .tag span {
+  margin: 0;
+  background: #797777;
+  padding: 3px 7px;
+  margin-right: 5px;
+  color: #000;
+  border-radius: 5px;
+}
+
+.card_content .tag #pm {
+  margin: 0;
+  background: rgb(46, 109, 160);
+  color: #fff;
+  padding: 3px 7px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.menu-icon {
+  text-align: top;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.menu-icon img {
+  width: 25px;
+}
+
+footer {
+  width: 100%;
+  background: #333;
+}
+
+.piro_info {
+  padding: 40px 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.piro_sns {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.piro_sns a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.piro_sns > a:hover {
+  transform: translateY(-2px);
+}
+
+.icon_section {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  background: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.icon_section > .icon:hover {
+  transform: translateY(-2px);
+}
+
+.icon a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon a img {
+  width: 20px;
+  height: 20px;
+}
+
+.mail_section {
+  display: flex;
+  align-items: center;
+}
+
+.mail_section:hover {
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.mail_section .icon {
+  margin-right: 10px;
+}
+
+.mail_section p {
+  align-items: center;
+}
+
+.piro_nav {
+  flex: 1;
+  flex-flow: row nowrap;
+  display: flex;
+  justify-content: flex-end;
+  min-width: max-content;
+}
+
+.piro_nav ul {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.piro_nav ul li {
+  list-style: none;
+  margin: 10px;
+  font-weight: light;
+}
+
+.piro_nav ul .divider {
+  color: rgb(145, 145, 145);
+}
+
+.piro_nav ul li:hover {
+  transform: translateY(-2px);
+}
+
+.piro_nav ul li a {
+  text-decoration: none;
+}
+
+.piro_right {
+  text-align: center;
+  padding: 1px 0px;
+  background: #222;
+}
+
+.piro_right p {
+  color: lightgray;
+}
+
+@media (max-width: 768px) {
+  header nav ul li {
+    display: none;
+  }
+  .card_content p {
+    margin: 0;
+    line-height: 1;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  header {
+    padding: 0 10px;
+  }
+  .main {
+    padding: 0 10px;
+  }
+  .piro_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 650px) {
+  .card {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+  .card_image {
+    width: 250px;
+    height: 110px;
+    margin: 30px auto 15px auto;
+  }
+  .card_image img {
+    border-radius: 7px;
+  }
+  .card_content {
+    text-align: center;
+    padding: 0;
+  }
+
+  .tag {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .menu-icon {
+    text-align: top;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+  .card_content p {
+    margin: 0;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  .footer_top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer_nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .footer_nav ul li {
+    margin: 0;
+  }
+
+  .sns_icons {
+    display: flex;
+    justify-content: center;
+    margin-left: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .piro_nav {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  header nav ul li {
+    display: none;
+  }
+}
