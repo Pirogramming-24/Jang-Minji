@@ -1,0 +1,321 @@
+* {
+  font-family: "Noto Sans KR", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #fff;
+}
+
+body {
+  background: #000;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 0% 30px;
+  height: 90px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+header h1 {
+  flex: 0 0 auto;
+}
+header h1 img {
+  cursor: pointer;
+}
+header nav {
+  flex: 1;
+  flex-flow: row nowrap;
+  display: flex;
+  justify-content: flex-end;
+  min-width: max-content;
+}
+header nav ul {
+  display: flex;
+  flex-flow: row nowrap;
+}
+header nav ul li {
+  list-style: none;
+  margin: 15px;
+  font-size: 1.3rem;
+  font-weight: light;
+}
+header nav ul li:hover {
+  transform: translateY(-2px);
+}
+header nav ul li a {
+  text-decoration: none;
+}
+header nav ul li #now {
+  text-decoration: none;
+  color: lime;
+}
+
+.main {
+  padding: 0 30px;
+  margin-bottom: 50px;
+}
+
+.main_top {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+}
+
+.main_top h2 {
+  font-weight: light;
+}
+
+.main_top p {
+  position: absolute;
+  right: 0;
+}
+
+.main_top p a {
+  text-decoration: none;
+}
+
+.interview_section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.person {
+  grid: 1 1 calc(33.3% - 10px);
+  background: #333;
+  padding: 20px;
+  border-radius: 10px;
+  height: 110px;
+}
+
+.person:hover {
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.person:hover .menu-icon img {
+  content: url(images/icons8-오른쪽-정렬-48.png);
+}
+
+.person:hover .info .profile_img img {
+  transform: scale(1.1);
+}
+
+.info {
+  display: flex;
+  position: relative;
+}
+
+.info .profile_img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.info .profile_img img {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.info .person_info h3 {
+  margin: 10px 15px;
+}
+.info .person_info #major {
+  margin: 10px 15px;
+  background: rgb(46, 109, 160);
+  color: #fff;
+  padding: 5px 7px;
+  border-radius: 5px;
+}
+.info .person_info #none_major {
+  margin: 10px 15px;
+  background: rgb(197, 66, 51);
+  color: #fff;
+  padding: 5px 7px;
+  border-radius: 5px;
+}
+
+.menu-icon {
+  text-align: top;
+  cursor: pointer;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+}
+
+.menu-icon img {
+  width: 25px;
+}
+
+footer {
+  width: 100%;
+  background: #333;
+}
+
+.piro_info {
+  padding: 40px 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.piro_sns {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.piro_sns a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.piro_sns > a:hover {
+  transform: translateY(-2px);
+}
+
+.icon_section {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  background: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.icon_section > .icon:hover {
+  transform: translateY(-2px);
+}
+
+.icon a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon a img {
+  width: 20px;
+  height: 20px;
+}
+
+.mail_section {
+  display: flex;
+  align-items: center;
+}
+
+.mail_section:hover {
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.mail_section .icon {
+  margin-right: 10px;
+}
+
+.mail_section p {
+  align-items: center;
+}
+
+.piro_nav {
+  flex: 1;
+  flex-flow: row nowrap;
+  display: flex;
+  justify-content: flex-end;
+  min-width: max-content;
+}
+
+.piro_nav ul {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.piro_nav ul li {
+  list-style: none;
+  margin: 10px;
+  font-weight: light;
+}
+
+.piro_nav ul .divider {
+  color: rgb(145, 145, 145);
+}
+
+.piro_nav ul li:hover {
+  transform: translateY(-2px);
+}
+
+.piro_nav ul li a {
+  text-decoration: none;
+}
+
+.piro_right {
+  text-align: center;
+  padding: 1px 0px;
+  background: #222;
+}
+
+.piro_right p {
+  color: lightgray;
+}
+
+@media (max-width: 850px) {
+  header nav ul li {
+    display: none;
+  }
+  .interview_section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  header nav ul li {
+    display: none;
+  }
+  .piro_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  header {
+    padding: 0 10px;
+  }
+  .main {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .interview_section {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .piro_nav {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  header nav ul li {
+    display: none;
+  }
+}
