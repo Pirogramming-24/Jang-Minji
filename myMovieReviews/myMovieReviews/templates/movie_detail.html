@@ -1,0 +1,65 @@
+{% load static %} <!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			as="style"
+			crossorigin
+			href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+		/>
+		<link rel="stylesheet" href="{% static 'css/detail.css' %}" />
+		<title>MOVIE_DETAIL</title>
+	</head>
+	<body>
+		<header>
+			<h1>
+				<a href="{% url 'myMovieReviews:list' %}" class="back-link"
+					>my<span class="movie_font">Movie</span>Reviews 🍿</a
+				>
+			</h1>
+		</header>
+
+		<hr />
+		<div class="back">
+			<a href="{% url 'myMovieReviews:list' %}" class="back-link"
+				>← LIST</a
+			>
+		</div>
+		<div class="movie">
+			<img src="{{review.poster}}" alt="포스터" />
+			<div class="movie_review">
+				<h3>{{review.title}}</h3>
+				<div class="review_info">
+					<p><strong>개봉년도 </strong>{{review.year}}</p>
+					<p><strong>감독 </strong>{{review.Dir}}</p>
+					<p><strong>주연 </strong>{{review.MC}}</p>
+					<p><strong>장르 </strong>{{ review.get_genre_display }}</p>
+					<p><strong>별점 </strong>{{review.rate}}</p>
+					<p>
+						<strong>러닝타임 </strong>{{ runtime_hour }}시간 {{
+						runtime_min }}분
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="review_section">{{review.content}}</div>
+
+		<div class="bottom">
+			<a
+				href="{% url 'myMovieReviews:update' review.id %}"
+				class="edit-link"
+				>✏️ Edit</a
+			>
+			<form
+				action="{% url 'myMovieReviews:delete' review.id %}"
+				method="POST"
+				style="display: inline"
+			>
+				{% csrf_token %}
+				<button type="submit" class="delete-link">🗑 Delete</button>
+			</form>
+		</div>
+	</body>
+</html>
