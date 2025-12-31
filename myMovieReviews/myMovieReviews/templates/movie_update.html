@@ -38,6 +38,7 @@
 				<p>
 					장르 :
 					<select name="genre">
+						<option value="" disabled selected>{{ review.get_genre_display }}</option>
 						<option value="action">액션</option>
 						<option value="romance">로맨스</option>
 						<option value="comedy">코미디</option>
