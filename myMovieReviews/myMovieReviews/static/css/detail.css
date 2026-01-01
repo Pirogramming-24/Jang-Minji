@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap");
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #18181B;
+	color:  #E5E7EB;
+    text-align: center;
+	font-family: "Pretendard Variable", Pretendard, -apple-system,
+		BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+		"Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+header {
+	text-align: center;
+}
+
+header h1 {
+	font-family: "Londrina Solid", sans-serif;
+	font-weight: 400;
+	font-size: 3.5rem;
+}
+
+header h1 a {
+    text-decoration: none;
+    color: #E5E7EB;
+}
+
+.movie_font {
+	color: #d6143e;
+}
+
+hr {
+	width: 80%;
+	margin: 0 auto;
+	border: 2px dotted #9CA3AF;
+}
+
+.back {
+    width: 60%;
+    margin: 0 auto;
+    text-align: start;
+    line-height: 50px;
+}
+
+.back a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #E5E7EB;
+}
+
+.movie {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.movie img {
+    width: 260px;
+    height: 390px;
+    margin-right: 20px;
+}
+
+.movie_review h3 {
+    text-align: start;
+    font-size: 2.5rem;
+    margin-bottom: 5px
+}
+
+.movie_review p {
+    text-align: start;
+    font-size: 1.2rem;
+    padding: 15px 0;
+}
+
+.review_section {
+    margin: 50px auto 0;
+    width: 60%;
+    background:  #26262B;
+    padding: 20px;
+    font-size: 1.1rem;
+    text-align: start;
+    border-radius: 10px;
+}
+
+.bottom {
+    width: 15%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.bottom a, .bottom form {
+    font-family: "Londrina Solid", sans-serif;
+    font-size: 1.2rem;
+    margin-top: 40px;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    text-decoration: none;
+    background: #d6143e;
+    color: #E5E7EB;
+    border-radius: 20px;
+}
+
+.bottom form button {
+    font-family: "Londrina Solid", sans-serif;
+    background: #d6143e;
+    border: none;
+    color: #E5E7EB;
+    font-size: 1.2rem;
+}

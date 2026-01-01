@@ -1,0 +1,50 @@
+{% load static %} <!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			as="style"
+			crossorigin
+			href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+		/>
+		<link rel="stylesheet" href="{% static 'css/list.css' %}" />
+		<title>MOVIE_LIST</title>
+	</head>
+	<body>
+		<header>
+			<h1>my<span class="movie_font">Movie</span>Reviews 🎫</h1>
+		</header>
+		<hr />
+
+		<div class="sort_links">
+			<a href="?sort=title">제목순</a> |
+			<a href="?sort=-rate">별점순</a> |
+			<a href="?sort=-RT">상영시간순</a> |
+			<a href="?sort=-id">최신순</a>
+		</div>
+		<div class="movie_list">
+			{% for review in reviews %}
+			<div class="movie">
+				<a href="{% url 'myMovieReviews:detail' review.id %}"
+					><img src="{{review.poster}}" alt="포스터"
+				/></a>
+				<div class="movie_info">
+					<a href="{% url 'myMovieReviews:detail' review.id %}">
+						<p>{{review.title}}</p>
+					</a>
+					<p>{{review.year}}</p>
+					<p>{{ review.get_genre_display }}</p>
+					<p>{{review.rate}}</p>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<div class="add_movie">
+			<a href="{% url 'myMovieReviews:create' %}" class="add">
+				Add Reviw
+			</a>
+		</div>
+	</body>
+</html>

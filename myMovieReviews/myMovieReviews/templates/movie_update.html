@@ -1,0 +1,83 @@
+{% load static %} <!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="{% static 'css/create.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/detail.css' %}" />
+		<title>REVIEW_EDIT</title>
+	</head>
+	<body>
+		<header>
+			<h1>Review Edit</h1>
+		</header>
+		<hr />
+
+		<form
+			action="{% url 'myMovieReviews:update' review.id %}"
+			method="POST"
+		>
+			<div class="movie_create">
+				{% csrf_token %}
+				<p>
+					제목 :
+					<input type="text" name="title" value="{{review.title}}" />
+				</p>
+				<p>
+					포스터 url :
+					<input
+						type="text"
+						name="poster"
+						value="{{review.poster}}"
+					/>
+				</p>
+				<p>
+					개봉년도 :
+					<input type="text" name="year" value="{{review.year}}" />
+				</p>
+				<p>
+					장르 :
+					<select name="genre">
+						<option value="" disabled selected>{{ review.get_genre_display }}</option>
+						<option value="action">액션</option>
+						<option value="romance">로맨스</option>
+						<option value="comedy">코미디</option>
+						<option value="drama">드라마</option>
+						<option value="fantasy">판타지</option>
+						<option value="horror">공포</option>
+					</select>
+				</p>
+				<p>
+					별점 :
+					<input
+						type="number"
+						name="rate"
+						step="0.1"
+						value="{{review.rate}}"
+					/>
+				</p>
+				<p>
+					러닝타임 :
+					<input type="text" name="RT" value="{{review.RT}}" />분
+				</p>
+				<p>
+					리뷰 :
+					<textarea name="content" cols="30" rows="10">
+{{review.content}}</textarea
+					>
+				</p>
+				<p>
+					감독 :
+					<input type="text" name="Dir" value="{{review.Dir}}" />
+				</p>
+				<p>
+					배우 :
+					<input type="text" name="MC" value="{{review.MC}}" />
+				</p>
+			</div>
+			<div class="save">
+				<input type="submit" value="Save" />
+			</div>
+		</form>
+	</body>
+</html>

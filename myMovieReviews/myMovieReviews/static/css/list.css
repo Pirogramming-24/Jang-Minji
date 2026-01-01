@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap");
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #18181B;
+	color:  #E5E7EB;
+	font-family: "Pretendard Variable", Pretendard, -apple-system,
+		BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+		"Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+header {
+	text-align: center;
+}
+
+header h1 {
+	font-family: "Londrina Solid", sans-serif;
+	font-weight: 400;
+	font-size: 3.5rem;
+}
+
+hr {
+	width: 80%;
+	margin: 0 auto;
+	border: 2px dotted #9CA3AF;
+}
+
+.sort_links {
+	text-align: right; 
+	width: 80%; 
+	margin: 10px auto;
+}
+
+.sort_links a {
+	text-decoration: none;
+	color: #E5E7EB;
+}
+
+.movie_font {
+	color: #d6143e;
+}
+
+.movie_list {
+	display: flex;
+    flex-wrap: wrap;
+	margin: 0 auto;
+	width: 80%;
+}
+
+.movie {
+    width: calc(25% - 20px);
+	text-align: center;
+    margin: 10px;
+	padding: 20px 20px 5px 20px;
+	background: #232326;
+	border-radius: 20px;
+}
+
+.movie img {
+	width: 220px;
+	height: 330px;
+}
+
+.movie_info {
+	padding: 20px 5px;
+}
+
+.movie_info a {
+	text-decoration: none;
+}
+
+.movie_info a p {
+	color: #E5E7EB;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.movie_info p {
+    text-align: start;
+	padding: 5px 0;
+	font-size: 1rem;
+    color: #9CA3AF;
+}
+
+.add_movie {
+	text-align: center;
+	align-items: center;
+}
+
+.add {
+	display: inline-block;
+	text-align: center;
+	line-height: 50px;
+	width: 150px;
+	height: 50px;
+	text-decoration: none;
+	font-family: "Londrina Solid", sans-serif;
+	font-size: 1.5rem;
+	color: #E5E7EB;
+	background: #d6143e;
+	border-radius: 25px;
+    margin-top: 20px;
+}
