@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #E6EAF2;
+}
+
+header {
+    display: flex;
+    padding: 15px 90px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2rem;
+
+}
+
+span {
+    color: lime;
+}
+
+header nav {
+    
+}
+header nav ul {
+    display: flex;
+    
+}
+
+header nav ul li {
+    margin-left: 100px;
+    list-style: none;
+    font-size: 1.2rem;
+}
+
+header nav ul li a {
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    color: lime;
+}
+
+hr {
+    width: 90%;
+    margin: 0 auto;
+    border: 1px dotted #E6EAF2;
+}
+
+body {
+    background: #0F1115;
+}
+

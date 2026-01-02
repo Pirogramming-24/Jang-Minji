@@ -1,0 +1,71 @@
+{% load static %} <!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			as="style"
+			crossorigin
+			href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+		/>
+		<link rel="stylesheet" href="{% static 'css/devtool_list.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+		<title>My SW Idea Manage</title>
+	</head>
+	<body>
+		<header>
+			<h1>My <span>SW Idea</span> Manage</h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="{% url 'ideas:idea_create' %}"
+							>아이디어 등록</a
+						>
+					</li>
+					<li>
+						<a href="{% url 'ideas:idea_list' %}">아이디어 관리</a>
+					</li>
+					<li>
+						<a href="{% url 'ideas:devtool_create' %}"
+							>개발툴 등록</a
+						>
+					</li>
+					<li>
+						<a href="{% url 'ideas:devtool_list' %}">개발툴 관리</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<hr />
+		<main>
+			<div class="devtool_list">
+				<h2><span>Devtool</span> List</h2>
+				<p>
+					개발툴 목록페이지입니다. 자신이 사용가능한 개발툴을
+					확인해보세요.
+				</p>
+				{% for devtool in devtools %}
+				<div
+					class="devtool"
+					style="
+						border: 1px solid #ccc;
+						margin-bottom: 20px;
+						padding: 10px;
+					"
+				>
+					<h3><a href="{% url 'ideas:devtool_detail' devtool.id %}"
+						>{{ devtool.name }}</a
+					></h3>
+
+					<p>{{ devtool.kind }}</p>
+
+					<p>{{ devtool.description }}</p>
+
+					<hr />
+				</div>
+				{% endfor %}
+			</div>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+/* 1. 메인 레이아웃 설정 */
+main {
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+main h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    background: transparent;
+}
+
+main p {
+    color: #888;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+    background: transparent;
+}
+
+.idea_list {
+    background: #161A22; 
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.devtool {
+    display: grid;
+    grid-template-columns: 1fr 2fr 4fr; 
+    align-items: center;
+    padding: 20px 0;
+    text-align: left;
+    background: transparent !important;
+}
+
+.devtool h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    background: transparent;
+}
+
+.devtool h3 a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.devtool h3 a:hover {
+    color: lime;
+}
+
+.devtool p {
+    margin: 0 !important;
+    color: #ccc !important;
+    font-size: 1rem;
+    background: transparent !important;
+    line-height: 1.4;
+}
+
+.devtool hr {
+    display: none;
+}

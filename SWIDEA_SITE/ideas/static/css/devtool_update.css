@@ -1,0 +1,77 @@
+
+main {
+    width: 100%;
+    max-width: 700px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+main h2 {
+    text-align: center;
+    margin: 30px 0 20px 0;
+    font-size: 2rem;
+    background: transparent; 
+}
+
+form {
+    background: #161A22;
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.devtool_create p {
+    background: transparent !important; 
+    text-align: left;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #AAA;
+    font-size: 1.1rem;
+}
+
+
+.devtool_create input[type="text"], 
+.devtool_create textarea {
+    width: 100%;
+    background: #0F1115; 
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 30px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.devtool_create input:focus, 
+.devtool_create textarea:focus {
+    border-color: lime;
+}
+
+.save {
+    background: transparent !important;
+    margin-top: 10px;
+}
+
+.save input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: 1px solid lime;
+    color: lime;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.save input[type="submit"]:hover {
+    background: lime;
+    color: #161A22;
+}

@@ -1,0 +1,109 @@
+{% load static %} <!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			as="style"
+			crossorigin
+			href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+		/>
+		<link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/idea_detail.css' %}" />
+		<title>My SW Idea Manage</title>
+	</head>
+	<script>
+		function toggleStarDetail(ideaId) {
+			fetch(`/idea-star/${ideaId}/`)
+				.then(response => response.json()) 
+				.then(data => {
+					const starElement = document.getElementById(`star-detail-${ideaId}`);
+					if (data.is_starred) {
+						starElement.innerText = '⭐';
+					} else {
+						starElement.innerText = '☆';
+					}
+				})
+				.catch(error => console.error('Error:', error));
+		}
+	</script>
+	<body>
+		<header>
+			<h1>My <span>SW Idea</span> Manage</h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="{% url 'ideas:idea_create' %}"
+							>아이디어 등록</a
+						>
+					</li>
+					<li>
+						<a href="{% url 'ideas:idea_list' %}">아이디어 관리</a>
+					</li>
+					<li>
+						<a href="{% url 'ideas:devtool_create' %}"
+							>개발툴 등록</a
+						>
+					</li>
+					<li>
+						<a href="{% url 'ideas:devtool_list' %}">개발툴 관리</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<hr />
+		<main>
+			<div class="back">
+				<a href="{% url 'ideas:idea_list' %}" class="back-link"
+					>← LIST</a
+				>
+			</div>
+			<div class="idea">
+				{% if idea.image %}
+				<img src="{{idea.image.url}}" alt="{{idea.title}}" />
+				{% else %}
+				<p>등록된 사진이 없습니다.</p>
+				{% endif %}
+				<div class="idea_section">
+					<h3>{{idea.title}}</h3>
+					<div class="idea_info">
+						<p>
+							<strong>1) 아이디어 관심도 </strong
+							>{{idea.interest}}
+						</p>
+						<p>
+							<strong>2) 예상개발툴 </strong>
+							<a href="{% url 'ideas:devtool_detail' idea.devtool.id %}">
+							{{idea.devtool}}</a>
+						</p>
+						<p>
+							<strong>3) 아이디어 실행 </strong>{{idea.content}}
+						</p>
+						<p>
+							<strong>4) 찜 여부 </strong>
+							<a href="javascript:void(0);" onclick="toggleStarDetail('{{ idea.id }}')" class="star-detail" id="star-detail-{{ idea.id }}">
+								{% if idea.star.is_starred %} ⭐ {% else %} ☆ {% endif %}
+							</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<div class="bottom">
+			<a href="{% url 'ideas:idea_update' idea.id %}" class="edit-link"
+				>수정</a
+			>
+			<form
+				action="{% url 'ideas:idea_delete' idea.id %}"
+				method="POST"
+				style="display: inline"
+			>
+				{% csrf_token %}
+				<button type="submit" class="delete-link">삭제</button>
+			</form>
+		</div>
+	</body>
+</html>

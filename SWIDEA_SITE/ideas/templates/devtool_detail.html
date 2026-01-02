@@ -1,0 +1,77 @@
+{% load static %} <!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			as="style"
+			crossorigin
+			href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+		/>
+		<link rel="stylesheet" href="{% static 'css/devtool_detail.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+		<title>My SW Idea Manage</title>
+	</head>
+	<body>
+		<header>
+			<h1>My <span>SW Idea</span> Manage</h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="{% url 'ideas:idea_create' %}"
+							>아이디어 등록</a
+						>
+					</li>
+					<li>
+						<a href="{% url 'ideas:idea_list' %}">아이디어 관리</a>
+					</li>
+					<li>
+						<a href="{% url 'ideas:devtool_create' %}"
+							>개발툴 등록</a
+						>
+					</li>
+					<li>
+						<a href="{% url 'ideas:devtool_list' %}">개발툴 관리</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<hr />
+		<main>
+			<h2><span>Devtool</span> Detail</h2>
+			<div class="devtool">
+				<h3>{{devtool.name}}</h3>
+				<p><strong>개발툴 종류 </strong>{{devtool.kind}}</p>
+				<p>{{devtool.description}}</p>
+				<p>
+					<strong>만들 수 있는 SW 목록 </strong>
+					{% for idea in devtool.idea_set.all %}
+						<p>
+							<a href="{% url 'ideas:idea_detail' idea.id %}">
+								{{ idea.title }}
+							</a>
+						</p>
+					{% endfor %}
+				</p>
+			</div>
+		</main>
+
+		<div class="bottom">
+			<a
+				href="{% url 'ideas:devtool_update' devtool.id %}"
+				class="edit-link"
+				>수정</a
+			>
+			<a href="{% url 'ideas:devtool_list' %}" class="back-link">목록</a>
+			<form
+				action="{% url 'ideas:devtool_delete' devtool.id %}"
+				method="POST"
+				style="display: inline"
+			>
+				{% csrf_token %}
+				<button type="submit" class="delete-link">삭제</button>
+			</form>
+		</div>
+	</body>
+</html>

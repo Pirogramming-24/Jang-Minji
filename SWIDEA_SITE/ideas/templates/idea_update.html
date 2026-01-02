@@ -1,0 +1,85 @@
+{% load static %} <!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			as="style"
+			crossorigin
+			href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+		/>
+		<link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/idea_update.css' %}" />
+		<title>My SW Idea Manage</title>
+	</head>
+	<body>
+		<header>
+			<h1>My <span>SW Idea</span> Manage</h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="{% url 'ideas:idea_create' %}"
+							>아이디어 등록</a
+						>
+					</li>
+					<li>
+						<a href="{% url 'ideas:idea_list' %}">아이디어 관리</a>
+					</li>
+					<li>
+						<a href="{% url 'ideas:devtool_create' %}"
+							>개발툴 등록</a
+						>
+					</li>
+					<li>
+						<a href="{% url 'ideas:devtool_list' %}">개발툴 관리</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<hr />
+        <main>
+        <h2><span>Idea</span> Edit</h2>
+		<form
+			action="{% url 'ideas:idea_update' idea.id %}"
+			method="post"
+			enctype="multipart/form-data"
+		>
+			{% csrf_token %}
+			<p>아이디어명 :</p>
+			<input name="title" value="{{idea.title}}" />
+			<p>이미지 :</p>
+			{% if idea.image %}
+			<p>
+				현재 파일:
+				<a href="{{ idea.image.url }}">{{ idea.image.name }}</a>
+			</p>
+			{% endif %}
+			<input type="file" name="image" accept="image/*" />
+			<p>아이디어 설명 :</p>
+			<textarea name="content" cols="30" rows="10">
+{{ idea.content }}</textarea
+			>
+			<p>아이디어 관심도 :</p>
+			<input
+				type="number"
+				name="interest"
+				value="{{idea.interest}}"
+				min="0"
+				max="5"
+				step="1"
+			/>
+			<p>예상 개발툴 :</p>
+			<select name="devtool" value="{{idea.devtool}}">
+				<option value="" disabled selected>{{idea.devtool}}</option>
+				{% for tool in devtools %}
+				<option value="{{ tool.id }}">{{ tool.name }}</option>
+				{% endfor %}
+			</select>
+			<div>
+				<input type="submit" value="저장" />
+			</div>
+		</form>
+        </main>
+	</body>
+</html>
