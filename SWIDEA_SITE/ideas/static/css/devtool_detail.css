@@ -1,0 +1,99 @@
+/* 1. 메인 레이아웃 */
+main {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+main h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    background: transparent;
+}
+
+main p {
+    color: #888;
+    margin-bottom: 40px;
+    background: transparent;
+}
+
+/* 2. 개발툴 상세 카드 박스 */
+.devtool {
+    background: #161A22;
+    border-radius: 20px;
+    padding: 60px;
+    border: 1px solid #333;
+    text-align: left; 
+    margin-bottom: 40px;
+}
+
+.devtool h3 {
+    font-size: 2.5rem;
+    color: #E6EAF2;
+    margin-bottom: 30px;
+    background: transparent;
+}
+
+.devtool p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    line-height: 1.6;
+    background: transparent;
+}
+
+.devtool p a {
+    text-decoration: none;
+    color: #888;
+}
+
+.devtool p a:hover {
+    cursor: pointer;
+    color: lime;
+}
+
+.devtool strong {
+    margin-right: 15px;
+    background: transparent;
+}
+
+.bottom {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.edit-link, .delete-link, .back-link {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: 1px solid lime; 
+    background: transparent; 
+}
+
+.edit-link {
+    border: 1px solid lime;
+}
+
+.edit-link:hover {
+    background-color: lime;
+}
+
+.delete-link {
+    border: 1px solid lime;
+}
+
+.delete-link:hover {
+    background: lime;
+}
+
+.back-link {
+    border: 1px solid lime;
+}
+
+.back-link:hover {
+    background: lime;
+}

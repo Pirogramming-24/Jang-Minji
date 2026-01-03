@@ -1,0 +1,128 @@
+{% load static %} <!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			as="style"
+			crossorigin
+			href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+		/>
+		<link rel="stylesheet" href="{% static 'css/idea_list.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+		<title>My SW Idea Manage</title>
+	</head>
+	<script>
+		function toggleStarDetail(ideaId) {
+			fetch(`/idea-star/${ideaId}/`)
+				.then(response => response.json()) 
+				.then(data => {
+					const starElement = document.getElementById(`star-detail-${ideaId}`);
+					if (data.is_starred) {
+						starElement.innerText = '⭐';
+					} else {
+						starElement.innerText = '☆';
+					}
+				})
+				.catch(error => console.error('Error:', error));
+		}
+		function changeInterest(ideaId, action) {
+        fetch(`/idea/${ideaId}/interest/?action=${action}`)
+            .then(response => response.json())
+            .then(data => {
+                const interestElement = document.getElementById(`interest-${ideaId}`);
+                if (interestElement) {
+                    interestElement.innerText = data.new_interest;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+	</script>
+	<body>
+		<header>
+			<h1>My <span>SW Idea</span> Manage</h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="{% url 'ideas:idea_create' %}"
+							>아이디어 등록</a
+						>
+					</li>
+					<li>
+						<a href="{% url 'ideas:idea_list' %}">아이디어 관리</a>
+					</li>
+					<li>
+						<a href="{% url 'ideas:devtool_create' %}"
+							>개발툴 등록</a
+						>
+					</li>
+					<li>
+						<a href="{% url 'ideas:devtool_list' %}">개발툴 관리</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<hr />
+		<main>
+			<div class="sort-links">
+    			<a href="?sort=-id" {% if sort == 'id' %}class="active"{% endif %}>등록순</a>
+    			<a href="?sort=interest" {% if sort == 'interest' %}class="active"{% endif %}>관심도순</a>
+    			<a href="?sort=title" {% if sort == 'title' %}class="active"{% endif %}>이름순</a>
+			</div>
+			<h2><span>Idea</span> List</h2>
+			<p>나의 아이디어를 잊지 말고 기억해보세요.</p>
+			<div class="idea_list">
+    			{% for idea in ideas %}
+   				 <div class="idea">
+        			<div class="image-container">
+            			{% if idea.image %}
+                		<img src="{{ idea.image.url }}" alt="{{ idea.title }}" style="width: 200px" />
+            			{% else %}
+                		<p>이미지가 없습니다.</p>
+            			{% endif %}
+						<a href="javascript:void(0);" onclick="toggleStarDetail('{{ idea.id }}')" class="star-detail" id="star-detail-{{ idea.id }}">
+							{% if idea.star.is_starred %} ⭐ {% else %} ☆ {% endif %}
+						</a>
+        		</div> 
+				<h3>
+            <a href="{% url 'ideas:idea_detail' idea.id %}">{{ idea.title }}</a>
+        </h3>
+
+        <p>{{ idea.content }}</p>
+        <p>
+			관심도
+			<button class="interest-btn" onclick="changeInterest('{{ idea.id }}', 'minus')">-</button>
+			<span id="interest-{{ idea.id }}" class="interest-num">{{ idea.interest }}</span>
+			<button class="interest-btn" onclick="changeInterest('{{ idea.id }}', 'plus')">+</button>
+		</p>
+        <p>🛠️ 예상 개발툴: {{ idea.devtool }}</p>
+    </div> {% endfor %} </div>
+		</main>
+		<div class="pagination">
+			{% if ideas.has_previous %}
+			<a
+				href="?page={{ ideas.previous_page_number }}&sort={{ sort }}"
+				class="page-btn"
+				>이전</a
+			>
+			{% else %}
+			<span class="page-btn disabled">이전</span>
+			{% endif %}
+
+			<span class="page-current"
+				>{{ ideas.number }} / {{ ideas.paginator.num_pages }}</span
+			>
+
+			{% if ideas.has_next %}
+			<a
+				href="?page={{ ideas.next_page_number }}&sort={{ sort }}"
+				class="page-btn"
+				>다음</a
+			>
+			{% else %}
+			<span class="page-btn disabled">다음</span>
+			{% endif %}
+		</div>
+	</body>
+</html>
